@@ -85,12 +85,11 @@ export const AuthProvider = ({ children }) => {
    * @returns {Object} Registration response data
    * @throws {Error} If registration fails
    */
-  const register = async (username, password, roles = []) => {
+  const register = async (username, password) => {
     try {
       const response = await api.post("/auth/register", {
         username,
         password,
-        roles,
       });
       return response.data;
     } catch (error) {
