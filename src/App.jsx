@@ -7,13 +7,14 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Unauthorized from "./pages/Unauthorized";
 import AdminDashboard from "./pages/AdminDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
+import TopBar from "./components/TopBar";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <div className="app">
-          Header
+          <TopBar />
           <main className="main-content">
             <Routes>
               {/* public routes */}
