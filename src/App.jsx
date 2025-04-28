@@ -15,6 +15,7 @@ function App() {
       <AuthProvider>
         <div className="app">
           <TopBar />
+          Header
           <main className="main-content">
             <Routes>
               {/* public routes */}
