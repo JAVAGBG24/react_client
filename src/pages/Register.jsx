@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Button from "../components/Button";
+import "../styles/auth.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -22,12 +24,9 @@ const Register = () => {
   };
 
   return (
-    <div
-      className="register-container"
-      style={{ width: "40rem", margin: "2rem" }}
-    >
+    <div className="container" style={{ width: "40rem", margin: "2rem" }}>
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
@@ -44,7 +43,9 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
+        <div className="button">
+          <Button text="Register" type="submit" variant="auth" />
+        </div>
       </form>
     </div>
   );

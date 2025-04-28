@@ -1,12 +1,31 @@
 import { useState, useEffect } from "react";
+import { getAllProducts } from "../api/productService";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getAllProducts();
+        setProducts(data);
+      } catch (err) {
+        console.log("Error " + err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="home">
       <h1>Products</h1>
-      <div className="product-grid">
+      <div className="products-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
             {product.image && (
