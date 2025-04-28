@@ -8,6 +8,7 @@ import Unauthorized from "./pages/Unauthorized";
 import AdminDashboard from "./pages/AdminDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import TopBar from "./components/TopBar";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <AuthProvider>
         <div className="app">
           <TopBar />
-          Header
+          <Header />
           <main className="main-content">
             <Routes>
               {/* public routes */}
