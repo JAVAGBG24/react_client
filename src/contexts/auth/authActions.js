@@ -48,7 +48,7 @@ export const login = async (dispatch, username, password) => {
   }
 };
 
-export const register = async (dispatch, username, password, roles = []) => {
+export const register = async (dispatch, username, password) => {
   // set loading state
   dispatch({ type: AUTH_ACTIONS.AUTH_LOADING });
 
@@ -56,7 +56,6 @@ export const register = async (dispatch, username, password, roles = []) => {
     const response = await api.post("/auth/register", {
       username,
       password,
-      roles,
     });
 
     // registration successful - return data but don't log in automatically
