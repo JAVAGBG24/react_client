@@ -26,16 +26,21 @@ const Products = () => {
   }, []);
 
   const handleFilterChange = (filters) => {
-    console.log("Applying filters: " + filters);
+    console.log("Applying filters: " + JSON.stringify(filters));
 
     // börjar med alla produkter
     let filtered = [...products];
 
     //tillämpar storlek om man valt det
     if (filters.size) {
-      console.log("Filter size " + filters.size);
+      console.log("Filter size " + JSON.stringify(filters.size));
       filtered = filtered.filter((product) => {
-        console.log("product: " + product.name + "stock: " + product.inventory);
+        console.log(
+          "product: " +
+            JSON.stringify(product.name) +
+            "stock: " +
+            JSON.stringify(product.inventory)
+        );
 
         const hasSizeInStock =
           product.inventory &&
@@ -43,9 +48,9 @@ const Products = () => {
           product.inventory[filters.size] > 0;
 
         console.log(
-          product.name +
+          JSON.stringify(product.name) +
             "has size " +
-            filters.size +
+            JSON.stringify(filters.size) +
             " in stock " +
             hasSizeInStock
         );
@@ -92,7 +97,10 @@ const Products = () => {
     }
 
     console.log(
-      "Filtered products: " + filtered.length + "of" + products.length
+      "Filtered products: " +
+        JSON.stringify(filtered.length) +
+        " of " +
+        JSON.stringify(products.length)
     );
 
     // uppdatera filtrerade produkter statet
