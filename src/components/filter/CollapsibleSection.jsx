@@ -12,7 +12,7 @@ const CollapsibleSection = ({ title, children, defaultExpanded = false }) => {
 
   return (
     <div className="filter-section">
-      <div className="section-header">
+      <div className="section-header" onClick={toggleExpanded}>
         <h3>{title}</h3>
 
         <span className={`arrow ${expanded ? "up" : "down"}`}>

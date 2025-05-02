@@ -42,18 +42,67 @@ const ProductFilter = ({ products, onFilterChange }) => {
   });
 
   // useEffect för att kunna "dra ut" tillgängliga kategorier och färger från produkterna
+  useEffect(() => {
+    if (products && products.length > 0) {
+      // "dra ut" extrahera unika kategorier med nåt som heter Set och filtrera bort
+      // null/undefined kategorier
+      const categories = [
+        ...new Set(products.map((product) => product.category).filter(Boolean)),
+      ];
+
+      // vi ska göra samma sak med färgerna
+      const colors = [
+        ...new Set(products.map((product) => product.color).filter(Boolean)),
+      ];
+
+      // räkna produkter som finns i lager
+      const inStockCount = products.filter((product) => product.inStock).length;
+
+      // uppdatera state med den datan "drog ut" - alla tre states: kategori, färg och product count
+      setAvailableCategories(categories);
+      setAvailableColors(colors);
+      setProductCounts({
+        inStock: inStockCount,
+        outOfStock: products.length - inStockCount,
+      });
+    }
+  }, [products]); // kör bara när products förändras
 
   // växla storleksval, välj ny avmarkera gamla
-  const handleSizeSelect = () => {};
+  const handleSizeSelect = (size) => {
+    setFilters((prev) => ({
+      ...prev,
+      size: prev.size === size ? "" : size,
+    }));
+  };
 
   // hantera filterförändring
-  const handleFilterChange = () => {};
+  const handleFilterChange = (field, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
 
   // lägga till nuvarande filter genom att anropa onChange
-  const applyFilters = () => {};
+  const applyFilters = () => {
+    onFilterChange(filters);
+  };
 
   // cleara alla filter, återställa
-  const clearFilters = () => {};
+  const clearFilters = () => {
+    setFilters({
+      size: "",
+      inStock: true,
+      category: "",
+      color: "",
+      minPrice: "",
+      maxPrice: "",
+    });
+
+    // anropa callback med tomt objekt för att rensa filters
+    onFilterChange({});
+  };
 
   return (
     <div className="product-filter">
