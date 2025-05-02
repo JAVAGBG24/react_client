@@ -1,0 +1,19 @@
+.banner {
+  background-color: black;
+  padding: 1rem 0rem;
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  background-color: white;
+  height: 2px;
+  width: 50px;
+}
+
+.banner-text {
+  font-size: 34px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 300;
+}

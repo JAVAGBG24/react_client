@@ -9,6 +9,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/unauthorized" element={<Unauthorized />} />
+              <Route path="/products" element={<Products />} />
 
               {/* protected routes for all authenticated users */}
               <Route element={<ProtectedRoute />}>

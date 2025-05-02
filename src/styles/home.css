@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Manrope:wght@200..800&display=swap");
+
+.home {
+  overflow-y: auto;
+}
+
+.banner {
+  padding: 0;
+  margin: 0;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 270px 540px 1fr;
+  grid-template-rows: 330px 250px;
+  grid-template-areas:
+    "img-1 img-2 img-3"
+    "text text img-3";
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.img-1 {
+  grid-area: img-1;
+  border-radius: 20px;
+  background-image: url("https://media-hosting.imagekit.io/f7cc86e167a345c7/dom-hill-JqZlSnI2ctA-unsplash.jpg?Expires=1840038987&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=g2dKI8RziZm00pUfNNsMUjjL1rqapJKMhBE0UtXHfPccAYkfh3OgFrt2Tl29qPW2aO-a3NoSzGS6Ee7Cq7SODGYwxobu7RXgZYJLUXIXjZmyxT8ZvVN7YEVRqKCof4B5Z~pbmX8xN7X5B5lgfXFXclUtRMICZwM4kH-3OPXbznx~8YAuPutzfH5zFfK0sQRP4fJfu8YYL74MG4OKLgvGFgWqhnSq1929kkObI8AzkYCtjTdmAYIvvs5aINJyemtGF5cWlu~wCARL43UNGEnOX1zEhUEgnGei06sXq9DCJ3R71uT6zMUOOA1VLunhkHUhrz-4ZiY4WqPibJLeg~iz-A__");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
+}
+
+.img-2 {
+  grid-area: img-2;
+  border-radius: 20px;
+  background-image: url("https://media-hosting.imagekit.io/abf799f7c15846ce/ovayo-ntlabati-f_WTk4JqwiM-unsplash.jpg?Expires=1840039041&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=vcmGqxDOLihqnUan12FP~hwBq~RLscLF0hRyHuvekxc-zPJ2OS5A003Y02XFgC6~-ynwDw0JvOsmKBlFuw0YEOyh8n46AalztZDv-H2unP~D2Yi0xUZf7JsMCw34aND8Y5WA18H~dCVGnCOOznJpN9S8hZIm4fmg23pxUPQzh4LkcRRAiMc~AjRZ5M4SNAONS0ksFfbLviOXkbZ9SWwEZ2egtDX243BZy6JX9Bkaadg2gH6Ck5sDoVBkJ1Ct6eta~rcxSHTU0JCYl35wmrLyko7uWY9juDM-~rg1KBCMLJLxkLk4QUGv7uNzW1BFX4WDI1E7NQX8KM9pvU5lkEEbdA__");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
+}
+
+.img-3 {
+  grid-area: img-3;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: 80%;
+  background-image: url("https://media-hosting.imagekit.io/189dcbf02f914663/sirio-7_ZNLVlJchs-unsplash.jpg?Expires=1840039048&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dfVmfrgQgl9TjlTZNr6Rfqh5jfE7GoiqI0BlqXcgDyWQu7YF1Nqi4DiOYN07-ttLvYHXaLACR86sInGrCa1DrO1NzN7wFBPR6ih9CzxOxU6pH6juXSl6fGUWphjO1VDA-~8JFk82HN~dnVGqdKY2FtuZ5rqwIojOduewlufUVg4FEmuGjYv-VeAhZRFag4rEfo9exdk08lQwqyB~Ko9IUkIa7pZbO23Ly~0esOmzPO59JIAIs5~wZ-LbUeZU7lCnRepdrvvD4W3kakyQ1U5KHAj8QzcrhZpsroDhc5fPLovET66Sl0-MMeIS7B4NjhyrOceEetdsrdgUNnxeFu8H1Q__");
+}
+
+.text {
+  grid-area: text;
+  max-width: 90%;
+  font-family: "Anton SC", sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 85px;
+  line-height: 1.1;
+}
+
+.box {
+  position: relative;
+  bottom: 25px;
+  left: 0px;
+}
