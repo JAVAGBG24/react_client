@@ -9,7 +9,7 @@ import "../../styles/filter.css";
 // name - name behöver för att kunna möjliggöra onChange dynamiskt
 // placeholder - ett placeholder värde
 const FilterInput = ({ type, options, value, onChange, name, placeholder }) => {
-  if (type === "radio")
+  if (type === "radio") {
     return (
       <div className="radio-group">
         {options.map((option) => (
@@ -19,11 +19,18 @@ const FilterInput = ({ type, options, value, onChange, name, placeholder }) => {
               id={option.id}
               name={name}
               checked={value === option.value}
+              onChange={() => onChange(name, option.value)}
             />
+            <label htmlFor={option.id}>{option.label}</label>
           </div>
         ))}
       </div>
     );
+  }
+
+  // fortsätta med nästa = select
+
+  // fortsätta med price
 };
 
 export default FilterInput;
