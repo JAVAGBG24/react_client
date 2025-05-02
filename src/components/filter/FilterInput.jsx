@@ -29,8 +29,50 @@ const FilterInput = ({ type, options, value, onChange, name, placeholder }) => {
   }
 
   // fortsätta med nästa = select
+  if (type === "select") {
+    return (
+      <select
+        className="filter-select"
+        value={value}
+        onChange={(e) => onChange(name, e.target.value)}
+      >
+        <option value="">{placeholder}</option>
+        {options.map((option, index) => (
+          <option key={index} value={option.value || option}>
+            {option.value || option}
+          </option>
+        ))}
+      </select>
+    );
+  }
 
   // fortsätta med price
+  if (type === "price") {
+    return (
+      <div className="price-inputs">
+        <input
+          type="number"
+          placeholder="min price"
+          value={value.min}
+          min="0"
+          onChange={(e) => onChange(`${name}min`, e.target.value)}
+          className="price-input"
+        />
+        <span>-</span>
+        <input
+          type="number"
+          placeholder="max price"
+          value={value.max}
+          min="0"
+          onChange={(e) => onChange(`${name}max`, e.target.value)}
+          className="price-input"
+        />
+      </div>
+    );
+  }
+
+  // hantera om ingen matchande typ hittas
+  return null;
 };
 
 export default FilterInput;
