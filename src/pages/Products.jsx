@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllProducts } from "../api/productService";
 import "../styles/products.css";
 import ProductFilter from "../components/filter/ProductFilter";
+import ProductCard from "../components/ProductCard";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -84,14 +85,14 @@ const Products = () => {
 
     // tillämpa min pris
     if (filters.minPrice) {
-      filtered = filtered.filters(
+      filtered = filtered.filter(
         (product) => product.price >= parseFloat(filters.minPrice)
       );
     }
 
     // tillämpa max pris
     if (filters.maxPrice) {
-      filtered = filtered.filters(
+      filtered = filtered.filter(
         (product) => product.price <= parseFloat(filters.maxPrice)
       );
     }
@@ -111,9 +112,7 @@ const Products = () => {
 
   return (
     <div className="products-container">
-      <h1>Products</h1>
-
-      <div className="product-layout">
+      <div className="products-layout">
         <div className="filter-sidebar">
           <ProductFilter
             products={products}
@@ -121,28 +120,16 @@ const Products = () => {
           />
         </div>
         <div className="products-content">
+          <h3>Products</h3>
           <div className="products-grid">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
-                <div key={product.id} className="product-card">
-                  {product.image && (
-                    <div className="product-image-container">
-                      <img
-                        className="product-image"
-                        src={product.image}
-                        alt={product.name}
-                      />
-                    </div>
-                  )}
-                  <div className="product-info">
-                    <h3>{product.name}</h3>
-                    <p className="description">{product.description}</p>
-                    <p className="price">${product.price.toFixed(2)}</p>
-                  </div>
-                </div>
+                <ProductCard key={product.id} product={product} />
               ))
             ) : (
-              <div className="no-products">No matching products</div>
+              <div className="no-products">
+                inga produkter matchar dina filter
+              </div>
             )}
           </div>
         </div>

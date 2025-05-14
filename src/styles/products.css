@@ -1,3 +1,33 @@
+.products-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.products-layout {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.filter-sidebar {
+  width: 270px;
+  flex-shrink: 0;
+}
+
+.products-content {
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+
+.no-products {
+  text-align: center;
+  padding: 3rem 0;
+  grid-column: 1 / -1;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* product card styles */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -51,31 +81,4 @@
   margin-top: auto;
 }
 
-.products-container {
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.products-layout {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.filter-sidebar {
-  width: 250px;
-  flex-shrink: 0;
-}
-
-.products-content {
-  flex-grow: 1;
-}
-
-.no-products {
-  text-align: center;
-  padding: 3rem 0;
-  grid-column: 1 / -1;
-  color: #555;
-  font-size: 1.1rem;
-}
+/* Add to your existing products.css */

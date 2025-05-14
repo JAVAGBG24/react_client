@@ -55,7 +55,7 @@ const FilterInput = ({ type, options, value, onChange, name, placeholder }) => {
           placeholder="min price"
           value={value.min}
           min="0"
-          onChange={(e) => onChange(`${name}min`, e.target.value)}
+          onChange={(e) => onChange("minPrice", e.target.value)}
           className="price-input"
         />
         <span>-</span>
@@ -64,7 +64,7 @@ const FilterInput = ({ type, options, value, onChange, name, placeholder }) => {
           placeholder="max price"
           value={value.max}
           min="0"
-          onChange={(e) => onChange(`${name}max`, e.target.value)}
+          onChange={(e) => onChange("maxPrice", e.target.value)}
           className="price-input"
         />
       </div>
