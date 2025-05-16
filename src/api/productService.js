@@ -11,6 +11,16 @@ export const getAllProducts = async () => {
   }
 };
 
+export const getProductById = async (id) => {
+  try {
+    const response = await api.get(`/products/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    throw error;
+  }
+};
+
 // get products by size in stock
 export const getProductsBySize = async (size) => {
   try {
